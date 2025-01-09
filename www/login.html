@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Login and Registration</title>
+    <style>
+        /* Your existing styles here */
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="container" id="loginForm">
+        <h2>Login</h2>
+        <form method="POST" action="/login" onsubmit="return handleLogin(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="#" onclick="toggleForm('registerForm')">Register here</a></p>
+        <p>Back to Home Page <a href="index.html">Back</a></p>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="container" id="registerForm" style="display: none;">
+        <h2>Register</h2>
+        <form method="POST" action="/register" onsubmit="return handleRegister(event)">
+            <label for="regUsername">Username:</label>
+            <input type="text" id="regUsername" name="username" placeholder="Choose a username" required>
+
+            <label for="regEmail">Email:</label>
+            <input type="email" id="regEmail" name="email" placeholder="Enter your email" required>
+
+            <label for="regPassword">Password:</label>
+            <input type="password" id="regPassword" name="password" placeholder="Choose a password" required>
+
+            <label for="regConfirmPassword">Confirm Password:</label>
+            <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="#" onclick="toggleForm('loginForm')">Login here</a></p>
+        <p>Back to Home Page <a href="index.html">Back</a></p>
+    </div>
+
+    <script>
+        // JavaScript functions to toggle forms (No changes needed here for backend integration)
+        function toggleForm(formId) {
+            document.getElementById('loginForm').style.display = formId === 'loginForm' ? 'block' : 'none';
+            document.getElementById('registerForm').style.display = formId === 'registerForm' ? 'block' : 'none';
+        }
+
+        // Mock login handling (only to show behavior on client side)
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Login successful!');
+        }
+
+        // Mock registration handling (only to show behavior on client side)
+        function handleRegister(event) {
+            event.preventDefault();
+            alert('Registration successful!');
+            toggleForm('loginForm');
+        }
+    </script>
+</body>
+</html>
